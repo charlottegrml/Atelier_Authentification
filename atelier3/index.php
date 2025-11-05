@@ -21,6 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Rediriger vers la page protégée
         header('Location: page_admin.php');
+
+        $nbVisite = $_SESSION['nbVisiteAdmin'];
+        $nbVisite = $nbVisite +1;
         exit();
     } else if ($username === 'user' && $password === 'utilisateur') {
         $nbVisiteUser = $nbVisiteUser +1;
@@ -30,6 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Rediriger vers la page protégée
         header('Location: page_user.php');
+        $nbVisite = $_SESSION['nbVisiteAdmin'];
+        $nbVisite = $nbVisite +1;
         exit();
     }
     else {
