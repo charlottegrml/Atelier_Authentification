@@ -5,6 +5,7 @@ $_SESSION['Visite']=0;
 session_start();
 
 $_SESSION['Visite']++;
+$Visite = $_SESSION['Visite'];
 // Vérifier si l'utilisateur est déjà connecté
 
 
