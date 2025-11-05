@@ -2,6 +2,7 @@
 // Démarrer la session
 session_start();
 
+$nbVisite = $_SESSION['nbVisiteUser'];
 // Vérifier si l'utilisateur est bien en possession d'un cookie valide
 // Dans le cas contraire il sera redirigé vers la page d'accueil de connexion
 if (!isset($_COOKIE['authToken'])) {
@@ -20,6 +21,7 @@ if (!isset($_COOKIE['authToken'])) {
 <body>
     <h1>Bienvenue sur la page Utilisateur protégée par un Cookie</h1>
     <p>Vous êtes connecté en tant qu'utilisateur</p>
+    <p>Nombre de Visite(s) en tant qu'Admin : <?php echo $nbVisite; ?> </p>
     <a href="logout.php">Se déconnecter</a>
 </body>
 </html>
