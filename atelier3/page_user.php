@@ -2,8 +2,8 @@
 // Démarrer la session
 session_start();
 
+$_SESSION['nbVisiteUser']++;
 $nbVisite = $_SESSION['nbVisiteUser'];
-$nbVisite = $nbVisite +1;
 // Vérifier si l'utilisateur s'est bienconnecté
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header('Location: index.php'); // Dans le cas contraire, l'utilisateur sera redirigé vers la page de connexion
