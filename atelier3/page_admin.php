@@ -2,8 +2,8 @@
 // Démarrer la session
 session_start();
 
+$_SESSION['nbVisiteAdmin']++;
 $nbVisite = $_SESSION['nbVisiteAdmin'];
-$nbVisite = $nbVisite +1;
 
 // Vérifier si l'utilisateur s'est bienconnecté
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
