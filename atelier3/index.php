@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Rediriger vers la page protégée
         header('Location: page_user.php');
-        $nbVisite = $_SESSION['nbVisiteAdmin'];
+        $nbVisite = $_SESSION['nbVisiteUser'];
         $nbVisite = $nbVisite +1;
         exit();
     }
