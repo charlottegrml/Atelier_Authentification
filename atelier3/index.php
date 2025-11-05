@@ -1,8 +1,10 @@
 <?php
+
+$_SESSION['Visite']=0;
 // Démarre la session
 session_start();
-$Visite = 1;
-$Visite = $Visite++;
+
+$_SESSION['Visite']++;
 // Vérifier si l'utilisateur est déjà connecté
 
 
