@@ -2,8 +2,8 @@
 // Démarrer la session
 session_start();
 
-$_SESSION['nbVisiteAdmin']++;
-$nbVisite = $_SESSION['nbVisiteAdmin'];
+//$_SESSION['nbVisiteAdmin']++;
+//$nbVisite = $_SESSION['nbVisiteAdmin'];
 
 // Vérifier si l'utilisateur s'est bienconnecté
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
@@ -22,7 +22,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <body>
     <h1>Bienvenue sur la page administrateur de l'atelier 3</h1>
     <p>Vous êtes connecté en tant que : <?php echo htmlspecialchars($_SESSION['username']); ?></p>
-    <p>Nombre de Visite(s) en tant qu'Administrateur : <?php echo $nbVisite; ?> </p>
     <a href="logout.php">Se déconnecter</a>
 </body>
 </html>
