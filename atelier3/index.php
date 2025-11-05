@@ -22,10 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Rediriger vers la page protégée
         header('Location: page_admin.php');
         exit();
-    } else if ($username === 'admin' && $password === 'secret') {
-        $jeton = bin2hex(random_bytes(16));
-        setcookie('authToken', $jeton, time() + 60, '/', '', false, true); // Le Cookie est initialisé et valable pendant 1 heure (3600 secondes) 
-        header('Location: page_admin.php'); // L'utilisateur est dirigé vers la page home.php
+    } else if ($username === 'user' && $password === 'utilisateur') {
+         $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $username;
+
+        // Rediriger vers la page protégée
+        header('Location: page_user.php');
         exit();
     }
     else {
