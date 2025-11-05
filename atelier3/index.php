@@ -1,7 +1,7 @@
 <?php
 // Démarre la session
 session_start();
-
+$Visite = $Visite++;
 // Vérifier si l'utilisateur est déjà connecté
 
 
@@ -13,28 +13,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Vérification simple des identifiants (à améliorer avec une base de données)
     if ($username === 'admin' && $password === 'secret') {
-        $nbVisiteAdmin = $nbVisiteAdmin +1;
+        //$nbVisiteAdmin = $nbVisiteAdmin +1;
         // Stocker les informations utilisateur dans la session
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $username;
-        $_SESSION['nbVisiteAdmin'] = $nbVisiteAdmin;
+        //$_SESSION['nbVisiteAdmin'] = $nbVisiteAdmin;
 
         // Rediriger vers la page protégée
         header('Location: page_admin.php');
 
-        $nbVisite = $_SESSION['nbVisiteAdmin'];
-        $nbVisite = $nbVisite +1;
+        //$nbVisite = $_SESSION['nbVisiteAdmin'];
+        //$nbVisite = $nbVisite +1;
         exit();
     } else if ($username === 'user' && $password === 'utilisateur') {
         $nbVisiteUser = $nbVisiteUser +1;
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $username;
-        $_SESSION['nbVisiteUser'] = $nbVisiteUser;
+        //$_SESSION['nbVisiteUser'] = $nbVisiteUser;
 
         // Rediriger vers la page protégée
         header('Location: page_user.php');
-        $nbVisite = $_SESSION['nbVisiteUser'];
-        $nbVisite = $nbVisite +1;
+        //$nbVisite = $_SESSION['nbVisiteUser'];
+        //$nbVisite = $nbVisite +1;
         exit();
     }
     else {
@@ -51,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <h1>Atelier authentification par Session</h1>
+    <p>Nombre de Visite(s) : <?php echo $Visite; ?></p>
     <h3>La page <a href="page_admin.php">page_admin.php</a> de cet atelier 3 est inaccéssible tant que vous ne vous serez pas connecté avec le login 'admin' et mot de passe 'secret'</h3>
     <form method="POST" action="">
         <label for="username">Nom d'utilisateur :</label>
