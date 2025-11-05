@@ -12,19 +12,24 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
+    
 
     // Vérification simple des identifiants (à améliorer avec une base de données)
     if ($username === 'admin' && $password === 'secret') {
+        $nbVisiteAdmin = $nbVisiteAdmin +1;
         // Stocker les informations utilisateur dans la session
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $username;
+        $_SESSION['nbVisiteAdmin'] = $nbVisiteAdmin;
 
         // Rediriger vers la page protégée
         header('Location: page_admin.php');
         exit();
     } else if ($username === 'user' && $password === 'utilisateur') {
-         $_SESSION['loggedin'] = true;
+        $nbVisiteUser = $nbVisiteUser +1;
+        $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $username;
+        $_SESSION['nbVisiteUser'] = $nbVisiteUser;
 
         // Rediriger vers la page protégée
         header('Location: page_user.php');
